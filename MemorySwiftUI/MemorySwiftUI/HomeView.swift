@@ -13,9 +13,18 @@ struct HomeView: View {
         VStack{
             Spacer()
             HStack{
-                ImageCell()
-                ImageCell()
-                ImageCell()
+                VStack{
+                    ImageCell()
+                    ImageCell()
+                }
+                VStack{
+                    ImageCell()
+                    ImageCell()
+                }
+                VStack{
+                    ImageCell()
+                    ImageCell()
+                }
             }
         }
         .background(Image("Home").resizable().scaledToFill().edgesIgnoringSafeArea(.all))

@@ -15,6 +15,9 @@ struct ImageCell:View {
             .scaledToFit()
             .frame(width: 75, height: 50, alignment: .trailing)
             .cornerRadius(/*@START_MENU_TOKEN@*/14.0/*@END_MENU_TOKEN@*/)
+            .onTapGesture {
+                print("=----")
+        }
     }
 }
 
