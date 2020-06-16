@@ -9,17 +9,20 @@
 import SwiftUI
 
 struct ImageCell:View {
-    var imageName:String?
+    let data:CellModel
     var body: some View{
-        Image("gouwu")
+        Image(self.data.image)
             .scaledToFit()
-            .frame(width: 75, height: 50, alignment: .trailing)
-            .cornerRadius(/*@START_MENU_TOKEN@*/14.0/*@END_MENU_TOKEN@*/)
+            .frame(width: 75, height: 48, alignment: .trailing)
+            .cornerRadius(16.0)
+            .onTapGesture {
+                print("\(self.data.image),\(self.data.desc),pressed")
+        }
     }
 }
 
 struct ImageCell_Previews: PreviewProvider {
     static var previews: some View {
-        ImageCell()
+        ImageCell(data: CellModel(type: "1000", desc: "测试", image: "gouwu"))
     }
 }
