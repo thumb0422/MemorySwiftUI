@@ -10,42 +10,37 @@ import SwiftUI
 
 struct HomeView: View {
     let datas = [
-                CellModel(type: "1000", desc: "理财", image: "licai"),
-                CellModel(type: "1001", desc: "邮箱", image: "youxiang"),
-                CellModel(type: "1002", desc: "社交", image: "shejiao"),
-                CellModel(type: "1003", desc: "购物", image: "gouwu"),
-                CellModel(type: "1004", desc: "支付", image: "zhifu"),
-                CellModel(type: "1005", desc: "游戏", image: "youxi"),
-                CellModel(type: "1006", desc: "工作", image: "work"),
-                CellModel(type: "2000", desc: "其他", image: "qita")
-                ]
+        CellModel(type: "1000", desc: "理财", image: "licai"),
+        CellModel(type: "1001", desc: "邮箱", image: "youxiang"),
+        CellModel(type: "1002", desc: "社交", image: "shejiao"),
+        CellModel(type: "1003", desc: "购物", image: "gouwu"),
+        CellModel(type: "1004", desc: "支付", image: "zhifu"),
+        CellModel(type: "1005", desc: "游戏", image: "youxi"),
+        CellModel(type: "1006", desc: "工作", image: "work"),
+        CellModel(type: "2000", desc: "其他", image: "qita")
+    ]
     var body: some View {
-        VStack{
-            Spacer()
-            ScrollView(.horizontal,showsIndicators: false){
-                HStack{
-                    /**
-                    //todo 无法获取index
-                    ForEach(datas,id: \.self){data in
-                        ImageCell(data: data)
-                    }
-                    */
-                    ForEach(0..<self.datas.count/2,id: \.self){index in
-                        VStack{
-                            Spacer()
-                            ImageCell(data: self.datas[index*2])
-                            Spacer()
-                            ImageCell(data: self.datas[index*2+1])
-                            Spacer()
+        NavigationView{
+            VStack{
+                ScrollView(.horizontal,showsIndicators: false){
+                    HStack{
+                        ForEach(0..<self.datas.count/2,id: \.self){index in
+                            VStack{
+                                NavigationLink(destination: ListView(data: self.datas[index*2])) {
+                                    ImageCell(data: self.datas[index*2])
+                                }.buttonStyle(PlainButtonStyle())
+                                NavigationLink(destination: ListView(data: self.datas[index*2+1])) {
+                                    ImageCell(data: self.datas[index*2+1])
+                                }.buttonStyle(PlainButtonStyle())
+                            }.foregroundColor(.clear)
                         }
                     }
-                }
+                }.foregroundColor(.clear)
             }
-                .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15))
-                .frame(height: 160.0,alignment: .bottom)
-            Spacer()
-        }
-        .background(Image("Home")
+            .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15))
+            .frame(height: 160.0,alignment: .bottom)
+            .foregroundColor(.clear)
+        }.background(Image("Home")
             .resizable()
             .scaledToFill()
             .edgesIgnoringSafeArea(.all))

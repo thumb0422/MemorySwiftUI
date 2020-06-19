@@ -11,24 +11,10 @@ import SwiftUI
 struct ImageCell:View {
     let data:CellModel
     var body: some View{
-        /*
         Image(self.data.image)
             .scaledToFit()
             .frame(width: 75, height: 48, alignment: .trailing)
             .cornerRadius(16.0)
-            .onTapGesture {
-                print("\(self.data.image),\(self.data.desc),pressed")
-        }
-        **/
-        NavigationLink(destination: ListView()) {
-            Image(self.data.image)
-                .scaledToFit()
-                .frame(width: 75, height: 48, alignment: .trailing)
-                .cornerRadius(16.0)
-                .onTapGesture {
-                    print("\(self.data.image),\(self.data.desc),pressed")
-            }
-        }.navigationBarTitle("\(data.desc)记忆")
     }
 }
 

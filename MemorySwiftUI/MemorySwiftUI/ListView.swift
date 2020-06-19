@@ -9,18 +9,15 @@
 import SwiftUI
 
 struct ListView:View {
-    let listDatas:[String] = ["A","B","C"]
+    var data:CellModel?
     var body: some View{
-        return List{
-            ForEach(listDatas,id: \.self){data in
-                Text("\(data)")
-            }
-        }
+        Text(self.data?.image ?? "asd" ).foregroundColor(.red).font(.largeTitle)
+            .navigationBarTitle(self.data?.desc ?? "")
     }
 }
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        ListView(data: CellModel(type: "1000", desc: "Test", image: ""))
     }
 }
