@@ -29,6 +29,6 @@ struct ListCell:View {
 
 struct ListCell_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(data: CellModel(type: "", desc: "", image: ""))
+        ListCell(data: db005(accountKey: "", accountUrl: "", account: "", accountPWD: "", accountDesc: "", dataType: ""))
     }
 }
