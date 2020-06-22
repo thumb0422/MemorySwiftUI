@@ -21,29 +21,24 @@ struct HomeView: View {
     ]
     var body: some View {
         NavigationView{
-            VStack{
+            ZStack{
+                Image("Home").resizable().aspectRatio(contentMode: .fill).edgesIgnoringSafeArea(.all)
                 ScrollView(.horizontal,showsIndicators: false){
-                    HStack{
+                    HStack(alignment: .center, spacing: 35.0){
                         ForEach(0..<self.datas.count/2,id: \.self){index in
-                            VStack{
+                            VStack(alignment: .center, spacing: 30.0){
                                 NavigationLink(destination: ListView(data: self.datas[index*2])) {
                                     ImageCell(data: self.datas[index*2])
                                 }.buttonStyle(PlainButtonStyle())
                                 NavigationLink(destination: ListView(data: self.datas[index*2+1])) {
                                     ImageCell(data: self.datas[index*2+1])
                                 }.buttonStyle(PlainButtonStyle())
-                            }.foregroundColor(.clear)
+                            }
                         }
                     }
-                }.foregroundColor(.clear)
-            }
-            .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15))
-            .frame(height: 160.0,alignment: .bottom)
-            .foregroundColor(.clear)
-        }.background(Image("Home")
-            .resizable()
-            .scaledToFill()
-            .edgesIgnoringSafeArea(.all))
+                }.padding(.horizontal, 20.0)
+            }//.navigationBarHidden(true)
+        }
     }
 }
 
