@@ -9,24 +9,26 @@
 import SwiftUI
 
 struct ListCell:View {
-    @State var wangzhi:String
-    @State var desc:String
+    @State var data:db005
     var body: some View{
-        HStack{
-            VStack{
+        VStack{
+            HStack{
                 Text("网址")
-                TextField("Nick Name", text: $wangzhi).textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("A", text: $data.accountUrl)
+                    .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
             }
-            VStack{
+            HStack{
                 Text("说明")
-                TextField("Nick Name", text: $desc).textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("B", text: $data.accountDesc)
+                    .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
             }
+            
         }
     }
 }
 
 struct ListCell_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        ListView(data: CellModel(type: "", desc: "", image: ""))
     }
 }
