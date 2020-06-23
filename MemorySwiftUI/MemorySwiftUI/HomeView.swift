@@ -37,7 +37,7 @@ struct HomeView: View {
                         }
                     }
                 }.padding(.horizontal, 20.0)
-            }//.navigationBarHidden(true)
+            }.navigationBarHidden(true).navigationBarTitle("", displayMode: .inline)
         }
     }
 }
