@@ -9,9 +9,10 @@
 import SwiftUI
 
 struct ListView:View {
-    var data:CellModel?
+    var data:CellModel
     let lists = [1,2,3,4,5,6]
     init(data:CellModel) {
+        self.data = data
         UITableView.appearance().tableFooterView = UIView()
         UITableView.appearance().separatorStyle = .none
     }
@@ -21,13 +22,12 @@ struct ListView:View {
                 ListCell(data: db005(accountKey: "\(list)", accountUrl: "www.baidu.com", account: "", accountPWD: "", accountDesc: "\(list)", dataType: ""))
             }
         }
-//        .navigationBarTitle(self.data?.desc,displayMode: .inline)//todo
-            .navigationBarTitle("I am back",displayMode: .inline)
+        .navigationBarTitle(self.data.desc)
     }
 }
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(data: CellModel(type: "1000", desc: "Test", image: ""))
+        ListView(data: CellModel(type: "1000", desc: "理财", image: "licai"))
     }
 }
